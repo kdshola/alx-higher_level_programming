@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def remove_char_at(str, n):
+    str_cpy = str
     if n >= len(str):
-        return str
+        return str_cpy
     elif n == 0:
         str_cpy = str[1:]
         return str_cpy
