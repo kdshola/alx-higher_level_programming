@@ -3,7 +3,7 @@
 
 /**
  * get_length_n_data - gets list length an address of its elements
- * @list: pointer to first list node
+ * @head: pointer to first list node
  * @length: list length
  * Return: array of list adress
  */

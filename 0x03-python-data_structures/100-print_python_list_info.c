@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <Python.h>
 
 /**
@@ -9,16 +10,16 @@
 
 void print_python_list_info(PyObject *p)
 {
-	int size = Py_SIZE(p), itr = 0;
+	int size = Py_SIZE(p), i = 0;
 	PyListObject *list;
 	PyObject *item;
 
 	printf("[*] Size of the Python List = %d\n", size);
 	list = (PyListObject *)p;
 	printf("[*] Allocated = %d\n", list->allocated);
-	for (; itr < size; itr++)
+	for (; i < size; i++)
 	{
-		item = PyList_GetItem(p, itr);
-		printf("Element %d: %s\n", itr, Py_TYPE(item)->tp_name);
+		item = PyList_GetItem(p, i);
+		printf("Element %d: %s\n", i, Py_TYPE(item)->tp_name);
 	}
 }
