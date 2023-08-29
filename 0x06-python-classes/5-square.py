@@ -13,12 +13,7 @@ class Square:
             size (int): length of a side of the square
         Returns: None
         """
-        if type(size) is not int:
-            raise TypeError('size must be an integer')
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.size = size
 
     def area(self):
         """Finds area of an instance of a square
