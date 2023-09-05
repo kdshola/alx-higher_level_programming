@@ -84,7 +84,6 @@ class Rectangle:
             return ""
         else:
             string = ""
-            for num in range(self.__height):
-                string += ('#' * self.__width)
-                string += '\n'
+            string += "\n".join("#" * self.__width
+                                for num in range(self.__height))
             return string

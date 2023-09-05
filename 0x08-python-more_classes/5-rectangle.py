@@ -84,9 +84,8 @@ class Rectangle:
             return ""
         else:
             string = ""
-            for num in range(self.__height):
-                string += ('#' * self.__width)
-                string += '\n'
+            string += "\n".join("#" * self.__width
+                                for num in range(self.__height))
             return string
 
     def __repr__(self):
@@ -94,7 +93,7 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return ""
         else:
-            return "Rectangle({}, {})".format(self.__width, self.__height)
+            return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
         """Prints a message upon deletion of a Rectangle instance"""
