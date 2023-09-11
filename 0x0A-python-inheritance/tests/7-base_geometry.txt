@@ -1,0 +1,100 @@
+The ``7-base_geometry`` test module
+===================================
+
+using ``BaseGeometry``
+--------------------
+
+Importing the module:
+	>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+Docstring test:
+	>>> length = __import__("7-base_geometry").__doc__
+	>>> len(length) > 1
+	True
+
+Chacking class docstring:
+	>>> length = __import__("7-base_geometry").BaseGeometry.__doc__
+	>>> len(length) > 1
+	True
+
+Chacking method docstring:
+	>>> length = __import__("7-base_geometry").BaseGeometry.area.__doc__
+	>>> len(length) > 1
+	True
+	>>> length = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	>>> len(length) > 1
+	True
+
+Checking area method:
+	>>> inst = BaseGeometry()
+	>>> inst.area()
+	Traceback (most recent call last)
+		...
+	Exception: area() is not implemented
+
+	>>> inst.area(1)
+	Traceback (most recent call last)
+		...
+	TypeError: area() takes 1 positional argument but 2 were given
+
+Checking integer_validator method arguments:
+	>>> inst.integer_validator()
+	Traceback (most recent call last)
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> inst.integer_validator("float")
+	Traceback (most recent call last)
+		...
+	TypeError: integer_validator() missing 1 required positional argument : 'value'
+	>>> inst.integer_validator("float", 1.0, 2.0, 3.3)
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Checking integer_validator method:
+	>>> inst.integer_validator("num", 1)
+
+	>>> inst.integer_validator("num", -1)
+	Traceback (most recent call last)
+		...
+        ValueError: num must be greater than 0
+
+	>>> inst.integer_validator("num", 0)
+	Traceback (most recent call last)
+		...
+	ValueError: num must be greater than 0
+	>>> inst.integer_validator("greet", "hello")
+	Traceback (most recent call last)
+		...
+	TypeError: greet must be an integer
+	>>> inst.integer_validator("float", 0.3)
+	Traceback (most recent call last)
+		...
+	TypeError: float must be an integer
+	>>> inst.integer_validator("boolean", False)
+	Traceback (most recent call last)
+		...
+	TypeError: boolean must be an integer
+	>>> inst.integer_validator("list", ['a', 'b', 'c'])
+	Traceback (most recent call last)
+		...
+	TypeError: list must be an integer
+	>>> inst.integer_validator("tuple", (5, 2))
+	Traceback (most recent call last)
+		...
+	TypeError: tuple must be an integer
+	>>> inst.integer_validator("set", {2, 3, 4, 5})
+	Traceback (most recent call last)
+		...
+	TypeError: set must be an integer
+	>>> inst.integer_validator("dict", {"pos": 1, "neg": -2})
+	Traceback (most recent call last)
+		...
+	TypeError: dict must be an integer
+	>>> inst.integer_validator("bytes", b"33")
+	Traceback (most recent call last)
+		...
+	TypeError: bytes must be an integer
+	>>> inst.integer_validator("frozenset", frozenset(["3", "6"]))
+	Traceback (most recent call last)
+		...
+	TypeError: frozenset must be an integer

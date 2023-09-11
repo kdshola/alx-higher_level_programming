@@ -1,0 +1,72 @@
+The test module for module ``1-my_list``
+======================================
+
+Using ``My-List``
+---------------
+
+Importing function:
+	>>> MyList = __import__("7-base_geometry").MyList
+
+Checking for documentation:
+	>>> length = __import__("1-my_list").__doc__
+	>>> len(length) > 1
+	True
+	>>> length = __import__("7-base_geometry").MyList.__doc__
+	>>> len(length) > 1
+	True
+	>>> length = __import__("7-base_geometry").MyList.print_sorted.__doc__
+	>>> len(length) > 1
+	True
+
+Checking inheritance:
+	>>> issubclass(MyList, List)
+	True
+
+Testing class:
+	>>> el = MyList()
+
+Testing print_sorted method:
+	>>> el.print_sorted()
+	[]
+
+Testing class append method:
+	>>> el.append(5)
+	>>> el.append(2)
+	>>> el.append(1)
+	>>> el.append(4)
+	>>> el.append(3)
+	>>> print(el)
+	[5, 2, 1, 4, 3]
+	>>> el.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> print(el)
+	[5, 2, 1, 4, 3]
+
+Testing for negative:
+	>>> el = MyList()
+	>>> el.append(5)
+	>>> el.append(2)
+	>>> el.append(-5)
+	>>> el.append(1)
+	>>> el.append(4)
+	>>> el.append(-2)
+	>>> el.append(3)
+	>>> print(el)
+	[5, 2, -5, 1, 4, -2, 3]
+	>>> el.print_sorted()
+	[-5, -2, 1, 2, 3, 4, 5]
+	>>> print(el)
+	[5, 2, -5, 1, 4, -2, 3]
+	>>> el = [-15, -3, -2, -1, -10, -11, -12]
+	>>> print(el)
+	[-15, -3, -2, -1, -10, -11, -12]
+	>>> el.print_sorted()
+	[-15, -12, -11, -10, -3, -2, -1]
+	>>> print(el)
+	[-15, -3, -2, -1, -10, -11, -12]
+
+Checking for argument count:
+	>>> el.print_sorted(1)
+	Traceback (most recent call last)
+		...
+	TypeError: print_sorted(1) takes 1 positional argument but 2 were given
