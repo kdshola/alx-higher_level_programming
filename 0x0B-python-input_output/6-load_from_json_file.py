@@ -2,6 +2,7 @@
 """
     load_from_json_file function module
 """
+import json
 
 
 def load_from_json_file(filename):
@@ -11,6 +12,5 @@ def load_from_json_file(filename):
     Returns:
         object: object from the JSON string
     """
-    import json
     with open(filename, 'r', encoding="utf-8") as file:
         return json.load(file)
