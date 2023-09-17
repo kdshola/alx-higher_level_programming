@@ -1,4 +1,4 @@
-#!/sr/bin/python3
+#!/usr/bin/python3
 """
     write_file function module
 """

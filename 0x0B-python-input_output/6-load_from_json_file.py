@@ -1,4 +1,4 @@
-#!/sr/bin/python3
+#!/usr/bin/python3
 """
     load_from_json_file function module
 """
